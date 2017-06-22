@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{{title}}</title>
+	<link rel="stylesheet" type="text/css" href="../css/chatroom.css">
+</head>
+<body>
+
+	<div class="container">
+		<h1 class="title">ChatBox</h1>
+		<div class="userBox">
+			<img src="{{user.profilePic}}" class="userPic">
+			<h3 class="userName">{{user.fullname}} | <a href="/logout">Logout</a></h3>
+		</div>
+		<div class="newroom">
+			<input type="text" name="newRoom" autocomplete="off">
+			<button id="create">Create Room</button>
+		</div>
+		<div class="cr-roomlist">
+			<ul class="roomlist">
+				<a href="#"><li>NOde</li></a>
+				<a href="#"><li>NOdeop</li></a>
+				<a href="#"><li>NOdeop</li></a>
+			</ul>
+		</div>
+	</div>
+
+</body>
+</html>

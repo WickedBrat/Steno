@@ -7,7 +7,8 @@ var express = require('express'),
 	connectMongo = require('connect-mongo')(session),
 	mongoose = require('mongoose').connect(config.dbURL),
 	passport = require('passport'),
-	FBStrategy = require('passport-facebook').Strategy
+	FBStrategy = require('passport-facebook').Strategy, 
+	room = []
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('hogan-express'));
@@ -34,7 +35,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./auth/passportauth.js')(passport, FBStrategy, config, mongoose);
-require('./routes/routes.js')(express, app, passport);
+require('./routes/routes.js')(express, app, passport, config);
 /*
 app.listen(9000, function() {
 	console.log('ChatBox is working on port 9000');
@@ -43,7 +44,7 @@ app.listen(9000, function() {
 app.set('port', process.env.PORT || 9000);
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-
+require('./socket/socket.js')(io, room);
 server.listen(app.get('port'), function() {
 	console.log('ChatBox is working on ' + app.get('port')); 
 })

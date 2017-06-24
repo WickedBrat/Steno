@@ -2,7 +2,7 @@ module.exports = function(express, app, passport, config){
 	var router = express.Router();
 
 	router.get('/', function(req, res, next) {
-		res.render('index', {title:'Welcome to chatbox'});
+		res.render('index');
 	})
 
 	function securePages(req, res, next) {
@@ -15,12 +15,16 @@ module.exports = function(express, app, passport, config){
 
 	router.get('/auth/facebook', passport.authenticate('facebook'));
 	router.get('/auth/facebook/callback', passport.authenticate('facebook', {
-		successRedirect:'/chatroom',
+		successRedirect:'/user',
 		failureRedirect:'/'
 	}))
 
-	router.get('/chatroom',securePages ,function(req, res, next) {
-		res.render('chatroom', {title:'Available Chatrooms', user:req.user,config:config});
+	router.get('/user',securePages ,function(req, res, next) {
+		res.render('user', {title:'Dashboard', user:req.user,config:config});
+	})
+
+	router.get('/user/todo',securePages ,function(req, res, next) {
+		res.render('todo', {title:'Dashboard', user:req.user,config:config});
 	})
 
 	router.get('/logout', function (req, res, next) {

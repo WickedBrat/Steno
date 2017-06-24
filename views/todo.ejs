@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title><%- title %></title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script type="text/javascript" src="/todo-list.js"></script>
+</head>
+<body>	
+
+	<div class="container">
+		<h2 class="title">Steno</h2>
+		<div class="userBox">
+			<div><img src="<%- user.profilePic %>" class="userPic"></div>
+			<div><h3 class="userName"><%- user.fullname %></h3>
+			<h3 class="logout"> <a href="/logout">Logout</a></h3></div>
+		</div>
+		<div class="underline"></div>
+	<div id="todo-table">
+		<form>
+			<input type="text" name="item" placeholder="Enter your text" required>
+			<button type="submit">Add</button>
+		</form>
+		<ul>
+			<% for(var i=0; i < todos.length; i++){ %>
+			<li><%= todos[i].item %></li>
+			<% } %>
+		</ul>
+	</div>
+</body>
+</html>

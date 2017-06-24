@@ -33,7 +33,7 @@ module.exports =  function(passport, FBStrategy, config, mongoose) {
 				var newUser = new userModel({
 					profileID:profile.id,
 					fullname:profile.displayName,
-					profilePic:profile.photos[5].value || ''
+					profilePic:profile.photos[0].value || ''
 				});
 
 				newUser.save(function(err){

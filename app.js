@@ -12,7 +12,7 @@ var express = require('express'),
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('hogan-express'));
-app.set('view engine', 'html');
+app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(session({secret:'I am lulululu', resave:true, saveUninitialized:true}));

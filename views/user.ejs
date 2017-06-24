@@ -2,31 +2,25 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>{{title}}</title>
-	<link rel="stylesheet" type="text/css" href="../css/chatroom.css">
-	<script src="../jquery-3.2.1.min.js"></script>
+	<title><%- title %></title>
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
-		$(function() {
-			var host = '{{config.host}}';
+		$(function() { 
+			var host = '<%- config.host %>';
 			var socket = io.connect(host + '/roomlist');
 			socket.on('connect', function(){
 				console.log('Connection Established!');
 			})
-
-
 			socket.on('roomupdate', function(data){
 				var procData = JSON.parse(data);
 				$('.roomlist').html('');
 				for (var i = 0; i < procData.length; i++) {
 					var str = '<a href="room/' + procData[i].room_number + '"><li>' + procData[i].room_name +'</li></a>';
 					$('.roomlist').prepend(str);
-
 				}
 			})
-
-
-
 			$(document).on('click', '#create', function() {
 				var room_name = $('.newRoom').val();
 				if(room_name != ''){
@@ -41,11 +35,24 @@
 <body>
 
 	<div class="container">
-		<h1 class="title">ChatBox</h1>
+		<h2 class="title">Steno</h2>
 		<div class="userBox">
-			<img src="{{user.profilePic}}" class="userPic">
-			<h3 class="userName">{{user.fullname}} | <a href="/logout">Logout</a></h3>
+			<div><img src="<%- user.profilePic %>" class="userPic"></div>
+			<div><h3 class="userName"><%- user.fullname %></h3>
+			<h3 class="logout"> <a href="/logout">Logout</a></h3></div>
 		</div>
+		<div class="underline"></div>
+
+		<a href="/user/todo"><button>Create A ToDo List</button></a>
+		
+
+
+
+
+
+
+
+
 		<div class="newroom">
 			<input type="text" class="newRoom" autocomplete="off">
 			<button id="create">Create Room</button>

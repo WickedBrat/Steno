@@ -6,5 +6,5 @@
 		"appSecret":"f23781ed2b80d5275fa5e3694f38f6b1",
 		"callbackURL":"http://localhost:9000/auth/facebook/callback"
 	},
-	"host":""
+	"host":"http://localhost:9000"
 }

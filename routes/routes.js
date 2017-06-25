@@ -30,12 +30,33 @@ module.exports = function(express, app, passport, config){
 
 //TODO Page
 	var bodyParser =require('body-parser');
-	var data = [{}];
 	var urlencodedParser = bodyParser.urlencoded({extended:false});
 
+
+
+
+
+
 	router.get('/user/todo',securePages ,function(req, res, next) {
+
+		MongoClient.connect(url, function(err, db) {
+			console.log("connected to mongo");
+		  if (err) console.log("test");
+			console.log("Going to request...");
+
+		  var data = db.users.find();
+			console.log("requested and going to render");
+		    db.close();
+		    console.log(data);
 		res.render('todo', {title:'Dashboard', user:req.user,config:config, todos:data});
+			console.log("rendered");
+		  });
 	});
+
+
+
+
+
 
 	router.post('/user/todo', urlencodedParser, function(req, res, next) {
 

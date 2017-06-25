@@ -3,7 +3,8 @@ module.exports =  function(passport, FBStrategy, config, mongoose) {
 	var user = new mongoose.Schema({
 		profileID:String,
 		fullname:String,
-		profilePic:String
+		profilePic:String,
+		todo:Array
 	})
 
 	var userModel = mongoose.model('user', user);
@@ -33,7 +34,8 @@ module.exports =  function(passport, FBStrategy, config, mongoose) {
 				var newUser = new userModel({
 					profileID:profile.id,
 					fullname:profile.displayName,
-					profilePic:profile.photos[0].value || ''
+					profilePic:profile.photos[0].value || '',
+					todo:[{"item":" "}]
 				});
 
 				newUser.save(function(err){

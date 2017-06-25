@@ -23,8 +23,8 @@ body{
 }
 
 input[type="text"]{
-    width: 70%;
     padding: 20px;
+    width: 70%;
     background:#181c22;
     border: 0;
     float: left;
@@ -34,14 +34,33 @@ input[type="text"]{
 
 button{
     padding: 20px;
-    width: 30%;
+    width: 100%;
     float: left;
     background: #23282e;
     border: 0;
-    box-sizing: border-box;
     color: #fff;
     cursor: pointer;
     font-size: 20px;
+}
+
+#create{
+    padding: 20px;
+    width:20%;
+    float: right;
+    background: #23282e;
+    border: 0;
+    color: #fff;
+    cursor: pointer;
+    font-size: 20px;
+    bottom: 10px;
+    position: fixed;
+    right: 10px;
+}
+#ss{
+    bottom: 0;
+    position: fixed;
+    left: 1%;
+    width: 74%;
 }
 
 ul{
@@ -52,16 +71,15 @@ ul{
 
 li{
     width: 100%;
-    padding: 20px;
+    padding: 5px;
     box-sizing: border-box;
-    font-family: arial;
+    
     font-size: 20px;
     cursor: pointer;
     letter-spacing: 1px;
 }
 
 li:hover{
-    text-decoration: line-through;
     background: rgba(0,0,0,0.2);
 }
 
@@ -91,25 +109,49 @@ a{
 }
 .logout {
     position: absolute;
-    top: 60px;
-    right: 20px;
+    top: 200px;
+    left: 280px;
+    font-size: 1.8em;
+    color: white;
 }
 .userName {
     position: absolute;
-    top: 60px;
-    right: 100px;
+    top: 150px;
+    left: 250px;
+    font-size: 1.8em;
 }
 
-.userPic {
-    position: absolute;
-    top: 60px;
-    right: 300px;
-}
+
 .underline {
     position: absolute;
     top: 120px;
     width: 99%;
     height: 3px;
-    background-color: blue;
+    background-color: #4B5770;
 
+}
+
+#navigation {
+    max-width: 500px;
+}
+
+#platform {
+    margin-top: 90px;
+    margin-left: 515px;
+    position: absolute;
+    width: auto;
+}
+
+p {
+    font-size: 1.8em;
+}
+
+#container {
+    position: fixed;
+}
+#ss{
+    bottom: 10px;
+}
+.remove {
+    text-decoration: line-through;
 }

@@ -8,7 +8,8 @@ var express = require('express'),
 	mongoose = require('mongoose').connect(config.dbURL),
 	passport = require('passport'),
 	FBStrategy = require('passport-facebook').Strategy, 
-	room = []
+	room = [],
+	todocontroller = require('./controller/controller.js')
 
 app.set('views', path.join(__dirname, 'views'));
 app.engine('html', require('hogan-express'));
@@ -16,6 +17,7 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(cookieParser());
 app.use(session({secret:'I am lulululu', resave:true, saveUninitialized:true}));
+
 
 var env = process.env.NODE_ENV || 'development';
 if (env === 'development') {

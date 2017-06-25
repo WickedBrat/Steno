@@ -44,12 +44,18 @@ module.exports = function(express, app, passport, config){
 		  if (err) console.log("test");
 			console.log("Going to request...");
 
-		  var data = db.users.find();
+		  db.collection("users").find().toArray(function(err,result){
+			  if (err) throw err;
+			    console.log(result);
+			    db.close();
+		  }
+						       ));
 			console.log("requested and going to render");
-		    db.close();
+		    
 		    console.log(data);
 		res.render('todo', {title:'Dashboard', user:req.user,config:config, todos:data});
 			console.log("rendered");
+			db.close();
 		  });
 	});
 

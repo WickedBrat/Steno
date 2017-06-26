@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title><%- title %></title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
@@ -17,7 +18,7 @@
 				var procData = JSON.parse(data);
 				$('.roomlist').html('');
 				for (var i = 0; i < procData.length; i++) {
-					var str = '<a href="room/' + procData[i].room_number + '"><li> <%- user.fullname %> :' + procData[i].room_name +'</li></a>';
+					var str = '<a href="gethelp/room/' + procData[i].room_number + '"><li>' + procData[i].room_name +'</li></a>';
 					$('.roomlist').prepend(str);
 				}
 			})
@@ -33,6 +34,9 @@
 	</script>
 </head>
 <body>
+		<div style="position: fixed; top: 10px; left: 10px;"><a href=""><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
+		<div style="position: fixed; top: 10px; right: 10px;"><a href="">Give your Suggestions</a></div>
+
 	<div id="platform">
 		<p>
 			In order to get help in any topic/issue. Type in the issue, it will be broadcasted to all the users on the website.<br>PS: Feature of bradcasting in particular group/circles will be added soon.

@@ -10,5 +10,15 @@ module.exports = function(io, room) {
       socket.emit('roomupdate', JSON.stringify(room)); // sends it back to the user that created it in the first place.
     })
   });
+
+  var messages = io.of('/messages').on('connection', function(socket){
+    console.log("Connected to chatroom.");
+
+    socket.on('joinroom', function(data){
+      socket.username = data.user;
+      socket.userPic = data.userPic;
+      socket.join(data.room);
+    })
+  })
 }
 

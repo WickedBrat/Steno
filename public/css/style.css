@@ -4,6 +4,9 @@ body{
     font-family: tahoma;
     color: #989898;
     font-family: 'Josefin Sans', sans-serif;
+    padding: 0;
+    margin: 0;
+    
 }
 
 #todo-table{
@@ -41,6 +44,7 @@ button{
     color: #fff;
     cursor: pointer;
     font-size: 20px;
+    font-family: 'Josefin Sans', sans-serif;
 }
 
 #create{
@@ -109,16 +113,19 @@ a{
 }
 .logout {
     position: absolute;
-    top: 200px;
-    left: 280px;
-    font-size: 1.8em;
+    top: 68px;
+    left: 80%;
+    font-size: 1.5em;
     color: white;
 }
 .userName {
     position: absolute;
-    top: 150px;
-    left: 250px;
+    top: 65px;
+    left: 15%;
     font-size: 1.8em;
+}
+.userPic {
+    width: 10%;
 }
 
 
@@ -132,12 +139,12 @@ a{
 }
 
 #navigation {
-    max-width: 500px;
+    max-width: 34%;
 }
 
 #platform {
     margin-top: 90px;
-    margin-left: 515px;
+    margin-left: 35%;
     position: absolute;
     width: auto;
 }
@@ -147,6 +154,7 @@ p {
 }
 
 #container {
+    width: 35%;
     position: fixed;
 }
 #ss{
@@ -154,4 +162,33 @@ p {
 }
 .remove {
     text-decoration: line-through;
+}
+
+.pic{
+    width: 50px;
+    height: 50px;
+}
+
+.msg{
+    padding: 0;
+}
+
+.rm-users .users{
+    display: inline-block;
+    position: absolute;
+    text-align: center;
+
+}
+
+ul li div {
+    display: inline-block;
+}
+
+div ul li {
+    display: inline-block;
+}
+.active-users {
+    position: absolute;
+    top: 140px;
+    right: 20%;
 }

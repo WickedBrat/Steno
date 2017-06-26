@@ -4,6 +4,7 @@
 	<meta charset="utf-8">
 	<title><%- title %></title>
 	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script src="/socket.io/socket.io.js"></script>
 	<script>
@@ -34,6 +35,15 @@
 </head>
 <body>
 
+		<div style="position: fixed; top: 10px; left: 10px;"><a href=""><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
+		<div style="position: fixed; top: 10px; right: 10px;"><a href="">Give your Suggestions</a></div>
+
+	<div id="platform">
+		<p>
+			Hello <%- user.fullname %>, Welcome to Steno. You can create your todo list which will be saved until you delete it. Moreover you can ask for help from the people who use the website by clicking the "Get Help". <br> Feel free to add suggestions for the web app.
+		</p>
+	</div>
+
 	<div class="container">
 		<h2 class="title">Steno</h2>
 		<div class="userBox">
@@ -49,9 +59,6 @@
 		</div>
 	</div>
 
-	<div id="platform">
-		
-	</div>
 
 </body>
 </html>

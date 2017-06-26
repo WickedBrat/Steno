@@ -1,4 +1,4 @@
-module.exports = function(express, app, passport, config){
+module.exports = function(express, app, passport, config, room){
 	var router = express.Router();
 
 	router.get('/', function(req, res, next) {
@@ -34,32 +34,19 @@ module.exports = function(express, app, passport, config){
 
 
 
-
-
-
 	router.get('/user/todo',securePages ,function(req, res, next) {
-
 		MongoClient.connect(url, function(err, db) {
-			console.log("connected to mongo");
-		  if (err) console.log("test");
-			console.log("Going to request...");
-
-		  var data = db.users.find();
-			console.log("requested and going to render");
-		    db.close();
-		    console.log(data);
-		res.render('todo', {title:'Dashboard', user:req.user,config:config, todos:data});
-			console.log("rendered");
-		  });
+			if (err) throw err;
+			db.collection("users").find({profileID:req.user.profileID}).toArray(function(err,result){
+				if (err) throw err;
+				res.render('todo', {title:'Dashboard', user:req.user,config:config, todos:result});
+				db.close();
+			});
+		});
 	});
 
-
-
-
-
-
 	router.post('/user/todo', urlencodedParser, function(req, res, next) {
-
+		var data = [{}];
 		MongoClient.connect(url, function(err, db) {
 		  if (err) throw err;
 		  var myquery = {"profileID":req.user.profileID};
@@ -70,21 +57,50 @@ module.exports = function(express, app, passport, config){
 		    db.close();
 		  });
 		});
+		data.push(req.body);
 		res.json(data);
 	});
 
-	router.delete('/user/todo:item', function(req, res, next){
+	/*router.delete('/user/todo/:item', function(req, res, next){
+		db.collection("users").find({profileID:req.user.profileID}).toArray(function(err,result){
 		data = data.filter(function(todo){
 			return todos.item.replace(/ /g, '-') !== req.params.item;
 		});
 		res.json(data);
-	});
+	});*/
 
 
 
+
+
+
+
+//Logout and Gethelp Page
 	router.get('/user/gethelp',securePages ,function(req, res, next) {
 		res.render('gethelp', {title:'Get Help', user:req.user,config:config});
 	});
+
+	router.get('/user/gethelp/room/:id', securePages , function(req, res, next) {
+		var room_name = findTitle(req.params.id);
+		res.render('room', {user:req.user, room_number:req.params.id, config:config, room_name:room_name})
+	});
+
+	function findTitle(room_id) {
+		var n=0;
+		while(n < room.length) {
+			if (room[n].room_number == room_id) {
+				return room[n].room_name;
+				break;
+			}
+			else {
+				n++;
+				continue;
+			}
+		}
+	}
+
+
+
 
 	router.get('/logout', function (req, res, next) {
 		req.logout();

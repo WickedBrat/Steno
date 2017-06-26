@@ -37,7 +37,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./auth/passportauth.js')(passport, FBStrategy, config, mongoose);
-require('./routes/routes.js')(express, app, passport, config);
+require('./routes/routes.js')(express, app, passport, config, room);
 /*
 app.listen(9000, function() {
 	console.log('ChatBox is working on port 9000');

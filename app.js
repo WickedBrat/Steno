@@ -8,7 +8,7 @@ var express = require('express'),
 	mongoose = require('mongoose').connect(config.dbURL),
 	passport = require('passport'),
 	FBStrategy = require('passport-facebook').Strategy, 
-	room = [],
+	rooms = [],
 	todocontroller = require('./controller/controller.js')
 
 app.set('views', path.join(__dirname, 'views'));
@@ -37,7 +37,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 require('./auth/passportauth.js')(passport, FBStrategy, config, mongoose);
-require('./routes/routes.js')(express, app, passport, config, room);
+require('./routes/routes.js')(express, app, passport, config, rooms);
 /*
 app.listen(9000, function() {
 	console.log('ChatBox is working on port 9000');
@@ -46,7 +46,7 @@ app.listen(9000, function() {
 app.set('port', process.env.PORT || 9000);
 var server = require('http').createServer(app);
 var io = require('socket.io').listen(server);
-require('./socket/socket.js')(io, room);
+require('./socket/socket.js')(io, rooms);
 server.listen(app.get('port'), function() {
 	console.log('ChatBox is working on ' + app.get('port')); 
 })

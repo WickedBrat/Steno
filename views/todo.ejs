@@ -40,7 +40,7 @@
 	</script>
 </head>
 <body>	
-		<div style="position: fixed; top: 10px; left: 10px;"><a href=""><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
+		<div style="position: fixed; top: 10px; left: 10px;"><a href="https://github.com/Siddhant2016/Steno"><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
 		<div style="position: fixed; top: 10px; right: 10px;"><a href="">Give your Suggestions</a></div>
 
 
@@ -52,7 +52,7 @@
 		<p>
 			Type in the text area below to add text in your todo list. You can mark the topic done just by  clicking on the text. The item will disappear from your list. 
 		</p>
-		<ul>
+		<ul><% if(todos[0].todo === undefined) {todos[0].todo = [{}];} %>
 			<% for(var i=0; i < todos[0].todo.length; i++){ %>
 			<li><%= todos[0].todo[i].item %></li>
 			<% } %>

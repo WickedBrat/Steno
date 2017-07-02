@@ -1,4 +1,4 @@
-module.exports = function(express, app, passport, config, room){
+module.exports = function(express, app, passport, config, rooms){
 	var router = express.Router();
 
 	router.get('/', function(req, res, next) {
@@ -32,8 +32,6 @@ module.exports = function(express, app, passport, config, room){
 	var bodyParser =require('body-parser');
 	var urlencodedParser = bodyParser.urlencoded({extended:false});
 
-
-
 	router.get('/user/todo',securePages ,function(req, res, next) {
 		MongoClient.connect(url, function(err, db) {
 			if (err) throw err;
@@ -61,13 +59,22 @@ module.exports = function(express, app, passport, config, room){
 		res.json(data);
 	});
 
-	/*router.delete('/user/todo/:item', function(req, res, next){
-		db.collection("users").find({profileID:req.user.profileID}).toArray(function(err,result){
-		data = data.filter(function(todo){
-			return todos.item.replace(/ /g, '-') !== req.params.item;
+	router.delete('/user/todo/:item', function(req, res, next){
+		console.log('Delete request called...');
+		var data = [{}];
+		MongoClient.connect(url, function(err, db) {
+			if (err) throw err;		
+			console.log('connection to mongo established...');
+			console.log(req.params.item);
+			var deleteitem = {$pull: {todo: {items:req.params.item}}};
+			db.collection("users").update({profileID:req.user.profileID}, deleteitem , {multi:true});
+				if (err) {console.log('something smrthing');}
+					console.log('run to command...');
+			res.json(data);
+					console.log('responding json...');
+			db.close();
 		});
-		res.json(data);
-	});*/
+	});
 
 
 
@@ -87,9 +94,9 @@ module.exports = function(express, app, passport, config, room){
 
 	function findTitle(room_id) {
 		var n=0;
-		while(n < room.length) {
-			if (room[n].room_number == room_id) {
-				return room[n].room_name;
+		while(n < rooms.length) {
+			if (rooms[n].room_number == room_id) {
+				return rooms[n].room_name;
 				break;
 			}
 			else {

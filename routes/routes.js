@@ -66,7 +66,7 @@ module.exports = function(express, app, passport, config, rooms){
 			if (err) throw err;		
 			console.log('connection to mongo established...');
 			console.log(req.params.item);
-			var deleteitem = {$pull: {todo: {items:req.params.item}}};
+			var deleteitem = {$pull: {todo: {item:req.params.item}}};
 			db.collection("users").update({profileID:req.user.profileID}, deleteitem , {multi:true});
 				if (err) {console.log('something smrthing');}
 					console.log('run to command...');

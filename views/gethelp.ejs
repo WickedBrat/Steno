@@ -2,6 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title><%- title %></title>
 	<link rel="stylesheet" type="text/css" href="/css/style.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -18,7 +19,7 @@
 				var procData = JSON.parse(data);
 				$('.roomlist').html('');
 				for (var i = 0; i < procData.length; i++) {
-					var str = '<a href="gethelp/room/' + procData[i].room_number + '"><li>' + procData[i].room_name +'</li></a>';
+					var str = '<div><a class="issuename" href="gethelp/room/' + procData[i].room_number + '"><li>' + procData[i].room_name +'</li></a></div>';
 					$('.roomlist').prepend(str);
 				}
 			})
@@ -34,41 +35,38 @@
 	</script>
 </head>
 <body>
-		<div style="position: fixed; top: 10px; left: 10px;"><a href=""><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
-		<div style="position: fixed; top: 10px; right: 10px;"><a href="">Give your Suggestions</a></div>
+		<h2 class="title">Steno</h2>
+ <div id="main">
+		<div id="navigation">
+			<img src="<%- user.profilePic %>" class="userPic">
+			<h3 class="userName"><%- user.fullname %></h3>
+			<a href="/user"><button class="nav">Home</button></a>
+			<a href="/user/todo"><button class="nav">Your to-do list</button></a>
+			<a href="/user/gethelp"><button class="nav">Get Help</button></a>
+			<a href="/logout"><button class="nav">Logout</button></a>			
+		</div>
+		<div style="top:1%; position: absolute; left: 10px;"><a href=""><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
+		<div style="position: absolute; top: 2%; right: 10px;"><a href="">Give your Suggestions</a></div>
 
 	<div id="platform">
 		<p>
 			In order to get help in any topic/issue. Type in the issue, it will be broadcasted to all the users on the website.<br>PS: Feature of bradcasting in particular group/circles will be added soon.
 		</p>
-			
-			<p>
-			<div class="cr-roomlist">
+			<div class="newroom" >
+				<div id="entry">
+					<input type="text" class="newRoom" autocomplete="off" placeholder="Enter your issue here.">
+				</div>
+				<div id="enter">
+					<button id="create">Get Help</button>
+				</div>
+			</div>
+		<p>
+			<div id="cr-roomlist">
 				<ul class="roomlist">
 				</ul>
-			</div>
-			</p>
-		</div>
-
-	<div class="container">
-		<h2 class="title">Steno</h2>
-		<div class="userBox">
-			<div><img src="<%- user.profilePic %>" class="userPic"></div>
-			<div><h3 class="userName"><%- user.fullname %></h3>
-			<h3 class="logout"> <a href="/logout">Logout</a></h3></div>
-		</div>
-		<div class="underline"></div>
-		
-		<div id="navigation">
-			<a href="/user/todo"><button>Your to-do list</button></a>
-			<a href="/user/gethelp"><button>Get Help</button></a>			
-		</div>
+	 		</div>
+		</p>
 	</div>
-			<div class="newroom" >
-				<input id="ss" type="text" class="newRoom" autocomplete="off">
-				<button id="create">Get Help</button>
-			</div>
-
-
+</div>
 </body>
 </html>

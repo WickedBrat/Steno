@@ -1,194 +1,184 @@
-@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+#main{
+	margin: 3% 3% 3% 3%;
+}
 body{
-    background: #0d1521;
-    font-family: tahoma;
-    color: #989898;
-    font-family: 'Josefin Sans', sans-serif;
-    padding: 0;
-    margin: 0;
-    
+	background-color:#DADADA;
+	font-family:futura ;
+	color: #474747;
+	margin:0;
+	padding: 0;
+	border:0;
+}
+a:link{
+	text-decoration: none;
+	border:none;
+	color:#DADADA;
+}
+a:visited{
+	color:#DADADA;
+	text-decoration: none;
+	border:none;
+}
+a:hover{
+	color:#DADADA;
+	text-decoration: none;
+	border:none;
+}
+a:acive{
+	color: #DADADA;
+	text-decoration: none;
+	border:none;
 }
 
-#todo-table{
-    position: relative;
-    width: 95%;
-    background: #090d13;
-    margin: 0 auto;
-    padding: 20px;
-    box-sizing: border-box;
+h1,h2,h3,h4,h5,h6{
+	margin: 0;
+	padding:0;
 }
-
-#todo-table form:after{
-    margin: 0;
-    content: '';
-    display: block;
-    clear: both;
+ul{
+	list-style-type: none;
+	
+}
+button{
+	display: block;
+	background-color: #707070;
+	border: none;
+	color: #DADADA;
+	box-shadow: 0px 10px 50px 0px #404040;
+	font-family: futura;
+	width: 100%;
+	padding: 7% 7% 6% 7%;
+	font-size: 20px;
+}
+button:hover{
+	font-size:25px;
+	border:none
 }
 
 input[type="text"]{
-    padding: 20px;
-    width: 70%;
-    background:#181c22;
-    border: 0;
-    float: left;
-    font-size: 20px;
-    color: #989898;
+	height: 40px;
+	background-color:#DADADA;
+	border-color: #474747;
+	font-size: 20px;
+	padding: 0 0 0 5px;
+	width: 100%;
+	margin:0% 0% 3% 0%;
+}
+.title{
+	font-size: 45px;
+	text-align: center;
+	width: 100%;
+	background-color:#404040;
+	color:white;
+	padding:2% 0% 2% 0%;	
 }
 
-button{
-    padding: 20px;
-    width: 100%;
-    float: left;
-    background: #23282e;
-    border: 0;
-    color: #fff;
-    cursor: pointer;
-    font-size: 20px;
-    font-family: 'Josefin Sans', sans-serif;
+#navigation{
+	float: left;
+	width: 20%;
+	height: 100%;
 }
 
-#create{
-    padding: 20px;
-    width:20%;
-    float: right;
-    background: #23282e;
-    border: 0;
-    color: #fff;
-    cursor: pointer;
-    font-size: 20px;
-    bottom: 10px;
-    position: fixed;
-    right: 10px;
+.userPic{
+	width:100%; 
+	text-align: center;
+	box-shadow: 0px 5px 30px  #909090;
 }
-#ss{
-    bottom: 0;
-    position: fixed;
-    left: 1%;
-    width: 74%;
-}
-
-ul{
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-}
-
-li{
-    width: 100%;
-    padding: 5px;
-    box-sizing: border-box;
-    
-    font-size: 20px;
-    cursor: pointer;
-    letter-spacing: 1px;
-}
-
-li:hover{
-    background: rgba(0,0,0,0.2);
-}
-
-h1{
-    background: url(/logo.png) no-repeat center;
-    margin-bottom: 0;
-    text-indent: -10000px;
-}
-
-h2 {
-    text-align: center;
-    color: white;
-    font-size: 3em;
-}
-
-#login{
-    width: 300px;
-}
-
-.userbox{
-    max-width:40%;
-}
-
-a{
-    text-decoration: none;
-    color: white;
-}
-.logout {
-    position: absolute;
-    top: 68px;
-    left: 80%;
-    font-size: 1.5em;
-    color: white;
-}
-.userName {
-    position: absolute;
-    top: 65px;
-    left: 15%;
-    font-size: 1.8em;
-}
-.userPic {
-    width: 10%;
-}
-
-
-.underline {
-    position: absolute;
-    top: 120px;
-    width: 99%;
-    height: 3px;
-    background-color: #4B5770;
-
-}
-
-#navigation {
-    max-width: 34%;
-}
-
-#platform {
-    margin-top: 90px;
-    margin-left: 35%;
-    position: absolute;
-    width: auto;
-}
-
-p {
-    font-size: 1.8em;
-}
-
-#container {
-    width: 35%;
-    position: fixed;
-}
-#ss{
-    bottom: 10px;
-}
-.remove {
-    text-decoration: line-through;
+.userName{
+	width:100%;
+	font-size: 120%;
+	text-align:center;
+	padding:2% 2% 2% 0%;
+	margin-bottom: 5%;
+	margin-top: 5%;	
 }
 
 .pic{
-    width: 50px;
-    height: 50px;
+	width: 30%;
+	height:30%;
+	box-shadow: 0px 5px 30px  #909090;
+}
+#platform{
+	float: right;
+	width: 75%;
 }
 
-.msg{
-    padding: 0;
+#entry{
+	float: left;
+	width: 75%;
+	height: 5%;
+}
+#enter{
+	float: right;
+	width: 20%;
+	height: 
+}
+a:link.issuename{
+	color: #474747;
+}
+a:hover.issuename{
+	color: #474747;
+}
+a:active.issuename{
+	color: #474747;
+} 
+a:visited.issuename{
+	color: #474747;
+}
+#cr-roomlist{
+	width: 100%;
+	float: left;
+}
+.issue{
+	text-align: left;
+	font-size: 30px;
+}
+.msgbox{
+	
 }
 
-.rm-users .users{
-    display: inline-block;
-    position: absolute;
-    text-align: center;
-
+#login{
+	
 }
-
-ul li div {
-    display: inline-block;
+#third{
+	width: 25%;
+	float: right;
 }
-
-div ul li {
-    display: inline-block;
+#second{
+	float: left;
+	width: 70%;
 }
-.active-users {
-    position: absolute;
-    top: 140px;
-    right: 20%;
+.newmessage{
+	width: 100%;
+}
+#listitems{
+	width: 100%;
+	float: left;
+	text-align: left;
+}
+.rm-newmessage{
+	margin-top: 30px;
+}
+.msgbox{
+	width: 100%;
+	float: left;
+}
+.msgpic{
+	margin:0;
+	padding:0;
+	width: 30px;
+}
+.rm-messages{
+	text-align: left;
+	float: left;
+}
+#msg-pic{
+	width: 20%;
+	float: left;
+	margin-bottom: 10PX;
+}
+#msg-{
+	width: 70%;
+	float: right;
+	padding: 0;
+	margin: 0 0 10px 0;
 }

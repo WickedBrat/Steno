@@ -34,31 +34,24 @@
 	</script>
 </head>
 <body>
-
-		<div style="position: fixed; top: 10px; left: 10px;"><a href="https://github.com/Siddhant2016/Steno"><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
-		<div style="position: fixed; top: 10px; right: 10px;"><a href="">Give your Suggestions</a></div>
-
+	<h2 class="title">Steno</h2>
+ <div id="main">
+		<div id="navigation">
+			<img src="<%- user.profilePic %>" class="userPic">
+			<h3 class="userName"><%- user.fullname %></h3>
+			<a href="/user"><button class="nav">Home</button></a>
+			<a href="/user/todo"><button class="nav">Your to-do list</button></a>
+			<a href="/user/gethelp"><button class="nav">Get Help</button></a>
+			<a href="/logout"><button class="nav">Logout</button></a>			
+		</div>
+		<div style="top:1%; position: absolute; left: 10px;"><a href=""><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
+		<div style="position: absolute; top: 2%; right: 10px;"><a href="">Give your Suggestions</a></div>
+		
 	<div id="platform">
 		<p>
 			Hello <%- user.fullname %>, Welcome to Steno. You can create your todo list which will be saved until you delete it. Moreover you can ask for help from the people who use the website by clicking the "Get Help". <br> Feel free to add suggestions for the web app.
 		</p>
 	</div>
-
-	<div class="container">
-		<h2 class="title">Steno</h2>
-		<div class="userBox">
-			<div><img src="<%- user.profilePic %>" class="userPic"></div>
-			<div><h3 class="userName"><%- user.fullname %></h3>
-			<h3 class="logout"> <a href="/logout">Logout</a></h3></div>
-		</div>
-		<div class="underline"></div>
-
-		<div id="navigation">
-			<a href="/user/todo"><button>Your to-do list</button></a><br>
-			<a href="/user/gethelp"><button>Get Help</button></a>			
-		</div>
-	</div>
-
 
 </body>
 </html>

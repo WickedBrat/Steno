@@ -40,39 +40,45 @@
 	</script>
 </head>
 <body>	
-		<div style="position: fixed; top: 10px; left: 10px;"><a href="https://github.com/Siddhant2016/Steno"><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
-		<div style="position: fixed; top: 10px; right: 10px;"><a href="">Give your Suggestions</a></div>
+	<h2 class="title">Steno</h2>
+<div id="main">
+		<div id="navigation">
+			<img src="<%- user.profilePic %>" class="userPic">
+			<h3 class="userName"><%- user.fullname %></h3>
+			<a href="/user"><button class="nav">Home</button></a>
+			<a href="/user/todo"><button class="nav">Your to-do list</button></a>
+			<a href="/user/gethelp"><button class="nav">Get Help</button></a>
+			<a href="/logout"><button class="nav">Logout</button></a>		
+		</div>
+		<div style="top:1%; position: absolute; left: 10px;"><a href=""><i class="fa fa-github" style="font-size: 3em;"></i></a></div>
+		<div style="position: absolute; top: 2%; right: 10px;"><a href="">Give your Suggestions</a></div>
 
 
 	<div id="platform">
+		<p>
+			Type in the text area below to add text in your todo list. You can mark the topic done just by clicking on the text. The item will disappear from your list. 
+		</p>
 		<form>
-			<input type="text" name="item" placeholder="Enter your text" autocomplete="off" required id="ss">
-			<button type="submit" id="create">Add</button>
+		<div>
+			<div id="entry">
+				<input type="text" name="item" placeholder="Enter your text" autocomplete="off" required id="ss">
+			</div>
+			<div id="enter">
+				<button id="rightbutton" type="submit" id="create">Add</button>
+			</div>
+		</div>
 		</form>
 		<p>
-			Type in the text area below to add text in your todo list. You can mark the topic done just by  clicking on the text. The item will disappear from your list. 
+		<div id="listitems">
+			<ul style="color: #474747;">
+				<% if(todos[0].todo === undefined) {todos[0].todo = [{}];} %>
+				<% for(var i=0; i < todos[0].todo.length; i++){ %>
+				<li><%= todos[0].todo[i].item %></li>
+				<% } %>
+			</ul>
+		</div>
 		</p>
-		<ul><% if(todos[0].todo === undefined) {todos[0].todo = [{}];} %>
-			<% for(var i=0; i < todos[0].todo.length; i++){ %>
-			<li><%= todos[0].todo[i].item %></li>
-			<% } %>
-		</ul>
 	</div>
-	<div class="container">
-		<h2 class="title">Steno</h2>
-		<div class="userBox">
-			<div><img src="<%- user.profilePic %>" class="userPic"></div>
-			<div><h3 class="userName"><%- user.fullname %></h3>
-			<h3 class="logout"> <a href="/logout">Logout</a></h3></div>
-		</div>
-		<div class="underline"></div>
-
-		<div id="navigation">
-			<a href="/user/todo"><button>Your to-do list</button></a><br>
-			<a href="/user/gethelp"><button>Get Help</button></a>			
-		</div>
-	</div>
-
-
+</div>
 </body>
 </html>
